@@ -99,12 +99,15 @@ function App() {
     }
 
     var appColors = document.getElementById("App");
+    var bodyColors = document.getElementById("quoteBody");
     // var appColors = card.getElementsByClassName("watermark")[0];
     // card.removeChild(waterMark);
     var downloadBtn = document.getElementById("downloadBtn");
     var tweetBtn = document.getElementById("tweetBtn");
     appColors.style.color = `${quoteArray[quoteIndex][1]}`;
     appColors.style.backgroundColor = `${quoteArray[quoteIndex][2]}`;
+    bodyColors.style.color = `${quoteArray[quoteIndex][1]}`;
+    bodyColors.style.backgroundColor = `${quoteArray[quoteIndex][2]}`;
     downloadBtn.style.color = `${quoteArray[quoteIndex][2]}`;
     downloadBtn.style.backgroundColor = `${quoteArray[quoteIndex][1]}`;
     downloadBtn.style.border = `solid ${quoteArray[quoteIndex][1]}`;

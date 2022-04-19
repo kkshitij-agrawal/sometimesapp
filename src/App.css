@@ -91,6 +91,11 @@
   justify-content: center;
 }
 
+#quoteBody {
+  color: #d13642;
+  background-color: #fdedb2;
+}
+
 .mainText {
   font-size: 4.2em;
   font-weight: bolder;
