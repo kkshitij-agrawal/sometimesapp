@@ -1,3 +1,7 @@
+:root {
+  --text-color: purple;
+}
+
 @font-face {
   font-family: Playfair;
   src: url(Assets/PlayfairDisplay.ttf);
@@ -9,6 +13,7 @@
   overflow: hidden;
   font-family: Playfair;
   color: #d13642;
+  background-color: #fdedb2;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -54,7 +59,7 @@
 .rightHeader a {
   margin-left: 2%;
   border: solid #d1364375;
-  color: #d13643d2;
+  color: rgba(209, 54, 67, 0.824);
   border-radius: 8px;
   padding: 1.5%;
   padding-left: 5%;
@@ -84,7 +89,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #fdedb2;
 }
 
 .mainText {
@@ -113,7 +117,6 @@
 
 .watermark {
   font-size: 1em;
-  color: #d13642;
   opacity: 0.5;
   font-weight: bold;
   margin-top: 5%;
