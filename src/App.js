@@ -16,6 +16,7 @@ function App() {
   const [waterMarkFlag, setWaterMarkFlag] = useState(false);
   var rand = Math.floor(Math.random() * 20);
   const [quoteIndex, setquoteIndex] = useState(rand);
+  const [colorIndex, setcolorIndex] = useState(rand);
 
   function removeWatermark() {
     var card = document.getElementById("quoteBody");
@@ -45,53 +46,80 @@ function App() {
   }
 
   // {quote, textcolor, bgcolor}
+  const colorArray = [
+    ["#d13642", "#fdedb2"],
+    ["#ffd15e", "#009bc6"],
+    ["#1539CF", "#F1D3D3"],
+    ["#28292B", "#B1FDEA"],
+    ["#FF0046", "#28292B"],
+    ["#0D3934", "#FFC5D6"],
+    ["#F02F3B", "#481B19"],
+    ["#F7CE17", "#B8237E"],
+    ["#19227D", "#F1C2B8"],
+    ["#FDF06E", "#D31B33"],
+    ["#16C37B", "#F4F4F4"],
+    ["#14E1E3", "#44266D"],
+    ["#6136BA", "#00FFC3"],
+    ["#FF8C8B", "#32145D"],
+    ["#90FFE4", "#073EA7"],
+    ["#E289DE", "#7912D9"],
+    ["#EDB200", "#502F7E"],
+    ["#1E3B34", "#FEBC00"],
+    ["#F6748D", "#E5E8DC"],
+    ["#FF8C8B", "#821E74"],
+  ];
+
   const quoteArray = [
-    ["it's just better to let things be.", "#d13642", "#fdedb2"],
-    ["it's all a scam.", "#ffd15e", "#009bc6"],
-    ["wasting time is more productive.", "#1539CF", "#F1D3D3"],
-    [
-      "one small decision feels like the biggest decision of your life.",
-      "#28292B",
-      "#B1FDEA",
-    ],
-    [
-      "one decision feels too small to be the biggest decision of your life.",
-      "#FF0046",
-      "#28292B",
-    ],
-    ["no-music workout is what you need.", "red", "yellow"],
-    ["coffee is all you need.", "red", "yellow"],
-    ["caffeine hits the g-spot.", "red", "yellow"],
-    [
-      "what didn't work out for you really worked out for you.",
-      "red",
-      "yellow",
-    ],
-    ["it's all the time.", "red", "yellow"],
-    ["enough is not enough.", "red", "yellow"],
-    ["silence says a lot more than words.", "red", "yellow"],
-    ["listening to a song on loop makes everything go away.", "red", "yellow"],
-    ["taking a nap makes everything go away.", "red", "yellow"],
-    ["", "red", "yellow"],
+    "coffee is all you need.",
+    "it's just better to let things be.",
+    "it's all a scam.",
+    "you have to the first step.",
+    "one small decision feels like the biggest decision of your life.",
+    "it's all the time.",
+    "caffeine hits the g-spot.",
+    "one decision feels too small to be the biggest decision of your life.",
+    "no-music workout is what you need.",
+    "wasting time is more productive.",
+    "what didn't work out for you really worked out for you.",
+    "enough is not enough.",
+    "silence says a lot more than words.",
+    "listening to a song on loop makes everything else fade away.",
+    "taking a nap makes everything go away.",
+    "just sometimes.",
+    "it's better to embrace the silence.",
+    "I'm like, what the hell?!",
+    "it's too soon",
+    "",
+    "I'll just start without even knowing where it's going.",
   ];
 
   // {
   //   "red&black":["#eree", "#erg"]
   // }
+  // var temp = -1;
+  const [temp, settemp] = useState(-1);
 
   function quoteChange() {
     // while (true) {
-    //   rand = Math.floor(Math.random() * 20);
-    //   if (rand < quoteArray.length) {
-    //     setquoteIndex(rand);
-    //     break;
-    //   }
+    while (true) {
+      rand = Math.floor(Math.random() * 20);
+      if ((rand != temp) & (rand < colorArray.length)) {
+        setcolorIndex(rand);
+        console.log(colorIndex, temp, rand);
+        settemp(rand);
+        break;
+      }
+    }
+    // if (rand < colorArray.length) {
+    //   setcolorIndex(rand);
+    // break;
     // }
-    console.log(
-      quoteArray[quoteIndex][0],
-      quoteArray[quoteIndex][1],
-      quoteArray[quoteIndex][2]
-    );
+    // }
+    // console.log(
+    //   quoteArray[quoteIndex][0],
+    //   quoteArray[quoteIndex][1],
+    //   quoteArray[quoteIndex][2]
+    // );
     if (quoteIndex >= quoteArray.length - 1) {
       setquoteIndex(0);
     } else {
@@ -104,15 +132,15 @@ function App() {
     // card.removeChild(waterMark);
     var downloadBtn = document.getElementById("downloadBtn");
     var tweetBtn = document.getElementById("tweetBtn");
-    appColors.style.color = `${quoteArray[quoteIndex][1]}`;
-    appColors.style.backgroundColor = `${quoteArray[quoteIndex][2]}`;
-    bodyColors.style.color = `${quoteArray[quoteIndex][1]}`;
-    bodyColors.style.backgroundColor = `${quoteArray[quoteIndex][2]}`;
-    downloadBtn.style.color = `${quoteArray[quoteIndex][2]}`;
-    downloadBtn.style.backgroundColor = `${quoteArray[quoteIndex][1]}`;
-    downloadBtn.style.border = `solid ${quoteArray[quoteIndex][1]}`;
-    tweetBtn.style.border = `solid ${quoteArray[quoteIndex][1]}`;
-    tweetBtn.style.color = `${quoteArray[quoteIndex][1]}`;
+    appColors.style.color = `${colorArray[colorIndex][0]}`;
+    appColors.style.backgroundColor = `${colorArray[colorIndex][1]}`;
+    bodyColors.style.color = `${colorArray[colorIndex][0]}`;
+    bodyColors.style.backgroundColor = `${colorArray[colorIndex][1]}`;
+    downloadBtn.style.color = `${colorArray[colorIndex][1]}`;
+    downloadBtn.style.backgroundColor = `${colorArray[colorIndex][0]}`;
+    downloadBtn.style.border = `solid ${colorArray[colorIndex][0]}`;
+    tweetBtn.style.border = `solid ${colorArray[colorIndex][0]}`;
+    tweetBtn.style.color = `${colorArray[colorIndex][0]}`;
     tweetBtn.style.opacity = ".7";
   }
 
@@ -128,7 +156,7 @@ function App() {
             <p></p>
             <a
               className="App-link"
-              href={`https://twitter.com/intent/tweet?url=sometimesin.life&text=sometimes, ${quoteArray[quoteIndex][0]}%0A- `}
+              href={`https://twitter.com/intent/tweet?url=sometimesin.life&text=sometimes, ${quoteArray[quoteIndex]}%0A- `}
               target="_blank"
               rel="noopener noreferrer"
               id="tweetBtn"
@@ -152,7 +180,7 @@ function App() {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <p className="mainText">
             <div className="smallText">sometimes,</div>
-            {quoteArray[quoteIndex][0]}
+            {quoteArray[quoteIndex]}
           </p>
           {/* <a
           className="App-link"
