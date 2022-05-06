@@ -73,7 +73,7 @@ function App() {
     "coffee is all you need.",
     "it's just better to let things be.",
     "it's all a scam.",
-    "you have to the first step.",
+    "you have to take the first step.",
     "one small decision feels like the biggest decision of your life.",
     "it's all the time.",
     "caffeine hits the g-spot.",
@@ -91,6 +91,14 @@ function App() {
     "it's too soon",
     "",
     "I'll just start without even knowing where it's going.",
+    "you will never know the value of a moment until it becomes a memory.",
+    "life is like coffee. You have to let it brew for the best taste.",
+    "it's the new beginnings that make the endings special.",
+    "it's neither hot, nor cold. Just lukeworm.",
+    "familiar starts feeling unfamiliar",
+    "🤌🤌🤌",
+    "when you lose sometihng, you gain something else.",
+    "it's okay to say no to plans to be by yourself.",
   ];
 
   // {

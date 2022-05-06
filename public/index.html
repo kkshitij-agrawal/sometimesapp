@@ -40,6 +40,26 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    (function (d, h, m) {
+      var js,
+        fjs = d.getElementsByTagName(h)[0];
+      if (d.getElementById(m)) {
+        return;
+      }
+      js = d.createElement(h);
+      js.id = m;
+      js.onload = function () {
+        window.makerWidgetComInit({
+          position: "left",
+          widget: "6qzqrqgkjnjua20n-rcfllhhxz22wrygz-mlajjufafpaekprh",
+        });
+      };
+      js.src = "https://makerwidget.com/js/embed.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "dhm");
+  </script>
+
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
