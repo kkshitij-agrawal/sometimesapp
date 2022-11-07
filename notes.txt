@@ -1,0 +1,2 @@
+npm run-script build
+C:\Users\Lenovo\AppData\Roaming\npm\firebase

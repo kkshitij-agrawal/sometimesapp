@@ -1,9 +1,10 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import { React, useState } from "react";
 
 import "./App.css";
 import "font-awesome/css/font-awesome.min.css";
 import html2canvas from "html2canvas";
+import { buildQueries } from "@testing-library/react";
 
 function App() {
   function download(dataurl, filename) {
@@ -47,7 +48,7 @@ function App() {
 
   // {quote, textcolor, bgcolor}
   const colorArray = [
-    ["#d13642", "#fdedb2"],
+    ["#d13642", "#fdedb2"], //red, yellow (basic)
     ["#ffd15e", "#009bc6"],
     ["#1539CF", "#F1D3D3"],
     ["#28292B", "#B1FDEA"],
@@ -64,22 +65,40 @@ function App() {
     ["#90FFE4", "#073EA7"],
     ["#E289DE", "#7912D9"],
     ["#EDB200", "#502F7E"],
-    ["#1E3B34", "#FEBC00"],
-    ["#F6748D", "#E5E8DC"],
-    ["#FF8C8B", "#821E74"],
+    ["#1E3B34", "#FEBC00"], //
+    ["#F6748D", "#E5E8DC"], //
+    ["#FF8C8B", "#821E74"], //
+    ["#141A46", "#EC8B5E"], //dark blue, orange
+    ["#143D59", "#F4B41A"], //dark blue, yellow
+    ["#F4A896", "#358597"], //pink, turquoise
   ];
 
   const quoteArray = [
+    "success and happiness starts with a f**k you.",
+    "enough is enough is enough",
+    "there's no next time.",
+    "efforts are better than promises.",
+    "some chapters end quickly, before we're even ready..",
+    "you just have to trust, you cannot have it confirmed.",
+    "you already knew, but just didn't know.",
+    "not all changes are new; some are just realizations, while some were just overdue.",
+    "success and happiness starts with f**k you",
+    "you stay in touch, but out of reach.",
+    "✨✨✨✨✨",
+    "it was meant to be just a chapter.",
+    "can not is better than can't.",
+    "you just wish for a path through the middle",
     "coffee is all you need.",
     "it's just better to let things be.",
     "it's all a scam.",
+    "we just need a little help.",
     "you have to take the first step.",
     "one small decision feels like the biggest decision of your life.",
     "it's all the time.",
     "caffeine hits the g-spot.",
     "one decision feels too small to be the biggest decision of your life.",
     "no-music workout is what you need.",
-    "wasting time is more productive.",
+    "doing nothing is more productive.",
     "what didn't work out for you really worked out for you.",
     "enough is not enough.",
     "silence says a lot more than words.",
@@ -93,12 +112,18 @@ function App() {
     "I'll just start without even knowing where it's going.",
     "you will never know the value of a moment until it becomes a memory.",
     "life is like coffee. You have to let it brew for the best taste.",
-    "it's the new beginnings that make the endings special.",
+    "life is like coffee, brew it for too long and it goes bitter.",
+    "it's the new beginning that make the ending special.",
     "it's neither hot, nor cold. Just lukeworm.",
     "familiar starts feeling unfamiliar",
     "🤌🤌🤌",
-    "when you lose sometihng, you gain something else.",
+    "when you lose something, you gain something else.",
     "it's okay to say no to plans to be by yourself.",
+    "you just have to rip off the band-aid.",
+    "I don't want it to end.",
+    "it is what it is.",
+    "it's the little things that end up being not so little.",
+    "timebound moments create timeless memories",
   ];
 
   // {
@@ -111,7 +136,7 @@ function App() {
     // while (true) {
     while (true) {
       rand = Math.floor(Math.random() * 20);
-      if ((rand != temp) & (rand < colorArray.length)) {
+      if ((rand !== temp) & (rand < colorArray.length)) {
         setcolorIndex(rand);
         console.log(colorIndex, temp, rand);
         settemp(rand);
@@ -140,6 +165,7 @@ function App() {
     // card.removeChild(waterMark);
     var downloadBtn = document.getElementById("downloadBtn");
     var tweetBtn = document.getElementById("tweetBtn");
+    var giftBtn = document.getElementById("giftBtn");
     appColors.style.color = `${colorArray[colorIndex][0]}`;
     appColors.style.backgroundColor = `${colorArray[colorIndex][1]}`;
     bodyColors.style.color = `${colorArray[colorIndex][0]}`;
@@ -150,6 +176,9 @@ function App() {
     tweetBtn.style.border = `solid ${colorArray[colorIndex][0]}`;
     tweetBtn.style.color = `${colorArray[colorIndex][0]}`;
     tweetBtn.style.opacity = ".7";
+    giftBtn.style.border = `solid ${colorArray[colorIndex][0]}`;
+    giftBtn.style.color = `${colorArray[colorIndex][0]}`;
+    giftBtn.style.opacity = ".7";
   }
 
   return (
@@ -162,6 +191,15 @@ function App() {
           </div>
           <div className="rightHeader">
             <p></p>
+            <a
+              className="App-link"
+              href="https://forms.gle/zgAGVkZRAcRLFf6QA"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="giftBtn"
+            >
+              <i class="fa fa-gift fa-lg" aria-hidden="true"></i>
+            </a>
             <a
               className="App-link"
               href={`https://twitter.com/intent/tweet?url=sometimesin.life&text=sometimes, ${quoteArray[quoteIndex]}%0A- `}
