@@ -210,11 +210,11 @@ function App() {
               Tweet
             </a>
             <a
+              href="#"
               className="App-link"
               onClick={() => {
                 downloadPNG();
               }}
-              href=""
               target="_blank"
               rel="noopener noreferrer"
               id="downloadBtn"
