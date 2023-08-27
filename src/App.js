@@ -214,6 +214,7 @@ function App() {
               onClick={() => {
                 downloadPNG();
               }}
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               id="downloadBtn"
